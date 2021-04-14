@@ -5,12 +5,27 @@ import sqlite3
 from sqlalchemy import create_engine
 
 def load_data(messages_filepath, categories_filepath):
+    """
+    Function: Loading the messages and categories databases
+    Args:
+      messages_filepath(str): Path of the messages database as str
+      categories_filepath(str): Path of the categories database as str
+    Return:
+      df(dataframe): Database that is created by the merging of messages and categories
+    """
     messages = pd.read_csv(messages_filepath)    
     categories = pd.read_csv(categories_filepath)
     df = pd.merge(messages,categories,on="id")
     return df
 
 def clean_data(df):
+    """
+    Function: Formatting the dataframe and splitting the categories and adding them as dummy variables
+    Args:
+      df(dataframe): Database that is created by the merging of messages and categories      
+    Return:
+      df(dataframe): Formatted dataframe with dummy variables for the categores
+    """
     categories = df["categories"].str.split(";",expand=True)
     row = categories[:1]
     category_colnames = row.applymap(lambda s: s[:-2]).iloc[0, :].tolist()
@@ -30,9 +45,13 @@ def clean_data(df):
     return df
     
 def save_data(df, database_filename):
+    """
+    Function: Saving the output dataframe as SQL table
+    Args:
+      df(dataframe): Database that is created by the merging of messages and categories      
+    """
     engine = create_engine('sqlite:///{}'.format(database_filename))
-    df.to_sql('end_table', engine, index=False, if_exists='replace')  
-
+    df.to_sql('end_table', engine, index=False, if_exists='replace')
 
 def main():
     if len(sys.argv) == 4:
