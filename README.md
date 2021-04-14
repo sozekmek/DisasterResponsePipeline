@@ -19,6 +19,21 @@ Except the default pandas, numpy and scikitlearn libraries, I have used nltk and
 This project's aim is to create a pipeline that will predict the precense of a disaster based on the messages send. For that, messages are pre-processed, trained and tested towards certain labels.
 ### 3. Files
 Data is provided by Figure 8.
+All the files and their respective descriptions can be found below:
+* app
+* * template
+* * * master.html # main page of web app
+* * * go.html # classification result page of web app
+* * run.py # Flask file that runs app
+* data
+* * disaster_categories.csv # category data to process
+* * disaster_messages.csv # message data to process
+* * process_data.py # python file to run the ETL pipeline
+* * DisasterResponse.db # database to save clean data to
+* models
+* * train_classifier.py # python file to run the ML pipeline
+* * classifier.rar # saved model with pickle file inside rar
+* README.md
 
 ### 4. ETL Pipeline
 Python script data/process_data.py performs following tasks on the data.
