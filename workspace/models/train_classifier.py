@@ -20,6 +20,13 @@ import pickle
 from tqdm import tqdm, tqdm_notebook
 
 def load_data(database_filepath):
+    """
+    Function: Splitting the messages and returning the root of them without the stop words
+    Args:
+      database_filepath(str): Path of the messages database as str
+    Return:
+      X,Y(dataframes): Two databases for inputs and output of the machine learning pipeline
+    """
     engine = create_engine('sqlite:///{}'.format(database_filepath))
     df = pd.read_sql_table("end_table",engine)
     X = df["message"]
