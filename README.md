@@ -1,5 +1,6 @@
 ## Data Science Nanodegree
 ### Disaster Response Pipeline
+During a natural disaster, need for medical aid or rescue become very intense. Predicting where is need for support proves to be very important for rapid response and proper distribution of workforce. With respect to the message database Figure 8 provided, I have prepared a Machine Learning pipeline to predict whether there is a need / request or not. 
 
 ### Table of Contents
 * Required Libraries
