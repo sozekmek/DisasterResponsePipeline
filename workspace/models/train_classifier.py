@@ -21,7 +21,7 @@ from tqdm import tqdm, tqdm_notebook
 
 def load_data(database_filepath):
     """
-    Function: Splitting the messages and returning the root of them without the stop words
+    Function: Loading the database from the SQL table
     Args:
       database_filepath(str): Path of the messages database as str
     Return:
